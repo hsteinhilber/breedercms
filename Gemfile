@@ -31,6 +31,8 @@ group :test do
   gem 'rb-fchange', '0.0.5'
   gem 'rb-notifu', '0.0.4'
   gem 'win32console', '1.3.0'
+  require 'rbconfig'
+  gem 'wdm', '>= 0.1.0' if RbConfig::CONFIG['target_os'] =~ /mswin|mingw/i
 end
 
 group :production do
