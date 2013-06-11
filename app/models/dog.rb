@@ -11,4 +11,7 @@
 
 class Dog < ActiveRecord::Base
   attr_accessible :birth_date, :name
+
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :birth_date, presence: true
 end
