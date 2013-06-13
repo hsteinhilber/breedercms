@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: dogs
+# Table name: pets
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -11,29 +11,29 @@
 
 require 'spec_helper'
 
-describe Dog do
-  before { @dog = Dog.new(name: "Rover", birth_date: "2001-01-01") }
+describe Pet do
+  before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01") }
 
-  subject { @dog }
+  subject { @pet }
 
   it { should respond_to(:name) }
 
   it { should be_valid }
 
   describe "when name is not present" do
-    before { @dog.name = "" }
+    before { @pet.name = "" }
     it { should_not be_valid }
   end
 
   describe "whne name is too long" do
-    before { @dog.name = "a" * 51 }
+    before { @pet.name = "a" * 51 }
     it { should_not be_valid }
   end
 
   it { should respond_to(:birth_date) }
 
   describe "when birth_date is not present" do
-    before { @dog.birth_date = nil }
+    before { @pet.birth_date = nil }
     it { should_not be_valid }
   end
 end

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: dogs
+# Table name: pets
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #
 
-class Dog < ActiveRecord::Base
+class Pet < ActiveRecord::Base
   attr_accessible :birth_date, :name
 
   validates :name, presence: true, length: { maximum: 50 }

@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20130611000212) do
 
-  create_table "dogs", :force => true do |t|
+  create_table "pets", :force => true do |t|
     t.string   "name"
     t.date     "birth_date"
     t.datetime "created_at", :null => false
