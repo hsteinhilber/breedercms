@@ -5,7 +5,7 @@ describe ImageUploader do
   include CarrierWave::Test::Matchers
 
   before(:all) {
-    @pet = Pet.create(name: "Tapanga", birth_date: "2011-12-28")
+    @pet = FactoryGirl.create(:pet)
     @uploader = ImageUploader.new(@pet, :profile_picture) 
     @uploader.store!(File.open('spec/support/tapanga.jpg'))
   }
