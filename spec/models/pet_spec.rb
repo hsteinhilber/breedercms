@@ -2,17 +2,19 @@
 #
 # Table name: pets
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  birth_date :date
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  profile_pic     :text
+#  id              :integer          primary key
+#  name            :string(255)
+#  birth_date      :date
+#  created_at      :datetime
+#  updated_at      :datetime
+#  profile_picture :string(255)
 #
 
 require 'spec_helper'
 
 describe Pet do
-  before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01") }
+  before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01", profile_picture: File.open("spec/support/tapanga.jpg")) }
 
   subject { @pet }
 
@@ -36,4 +38,12 @@ describe Pet do
     before { @pet.birth_date = nil }
     it { should_not be_valid }
   end
+  
+  it { should respond_to(:profile_picture) }
+   
+  describe "when profile_picture is not present" do
+    before { @pet.profile_picture = nil }
+    it { should_not be_valid }
+  end
+
 end

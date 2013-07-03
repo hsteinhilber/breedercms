@@ -2,16 +2,19 @@
 #
 # Table name: pets
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  birth_date :date
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  profile_pic     :text
+#  id              :integer          primary key
+#  name            :string(255)
+#  birth_date      :date
+#  created_at      :datetime
+#  updated_at      :datetime
+#  profile_picture :string(255)
 #
 
 class Pet < ActiveRecord::Base
-  attr_accessible :birth_date, :name
+  attr_accessible :birth_date, :name, :profile_picture
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :birth_date, presence: true
+  validates :profile_picture, presence: true
 end
