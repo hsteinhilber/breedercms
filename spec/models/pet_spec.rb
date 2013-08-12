@@ -27,7 +27,7 @@ describe Pet do
     it { should_not be_valid }
   end
 
-  describe "whne name is too long" do
+  describe "when name is too long" do
     before { @pet.name = "a" * 51 }
     it { should_not be_valid }
   end
