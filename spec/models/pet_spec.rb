@@ -42,8 +42,9 @@ describe Pet do
   it { should respond_to(:profile_picture) }
    
   describe "when profile_picture is not present" do
-    before { @pet.profile_picture = nil }
+    before { @pet.profile_picture.remove! }
     it { should_not be_valid }
   end
 
+  it { should respond_to(:profile_picture_url) }
 end

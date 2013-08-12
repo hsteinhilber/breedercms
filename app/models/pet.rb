@@ -14,6 +14,8 @@
 class Pet < ActiveRecord::Base
   attr_accessible :birth_date, :name, :profile_picture
 
+  mount_uploader :profile_picture, ImageUploader
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :birth_date, presence: true
   validates :profile_picture, presence: true
