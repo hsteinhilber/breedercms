@@ -63,6 +63,14 @@ p {
   line-height: 1.7em;
 }
 
+/* body */
+
+.profile {
+  float: left;
+  padding-right: 10px;
+  padding-bottom: 10px;
+}
+
 /* header */
 
 #logo {
@@ -85,6 +93,7 @@ p {
 /* footer */
 
 footer {
+  clear: both;
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $grayMediumLight;

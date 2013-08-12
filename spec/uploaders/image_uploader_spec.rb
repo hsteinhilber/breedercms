@@ -18,6 +18,6 @@ describe ImageUploader do
   its(:store_dir) { should match("uploads/pet/profile_picture/#{@pet.id}") }
   
   it { should respond_to(:thumb) }
-  its(:thumb) { should be_no_larger_than(128, 128) }
+  its(:thumb) { should be_no_larger_than(256, 256) }
 
 end
