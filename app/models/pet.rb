@@ -12,7 +12,8 @@
 #
 
 class Pet < ActiveRecord::Base
-  attr_accessible :birth_date, :name, :profile_picture
+  attr_accessible :birth_date, :name, :profile_picture, :gender
+  attr_accessible :color, :eye_color, :breed, :height, :weight
 
   mount_uploader :profile_picture, ImageUploader
 

@@ -19,6 +19,7 @@ describe Pet do
   subject { @pet }
 
   it { should respond_to(:name) }
+  it { should respond_to(:name=) }
 
   it { should be_valid }
 
@@ -33,6 +34,7 @@ describe Pet do
   end
 
   it { should respond_to(:birth_date) }
+  it { should respond_to(:birth_date=) }
 
   describe "when birth_date is not present" do
     before { @pet.birth_date = nil }
@@ -40,6 +42,7 @@ describe Pet do
   end
   
   it { should respond_to(:profile_picture) }
+  it { should respond_to(:profile_picture=) }
    
   describe "when profile_picture is not present" do
     before { @pet.profile_picture.remove! }
@@ -49,16 +52,22 @@ describe Pet do
   it { should respond_to(:profile_picture_url) }
 
   it { should respond_to(:gender) }
+  it { should respond_to(:gender=) }
 
   it { should respond_to(:color) }
+  it { should respond_to(:color=) }
 
   it { should respond_to(:eye_color) }
+  it { should respond_to(:eye_color=) }
 
   it { should respond_to(:breed) }
-
-  it { should respond_to(:age) }
+  it { should respond_to(:breed=) }
 
   it { should respond_to(:height) }
+  it { should respond_to(:height=) }
 
   it { should respond_to(:weight) }
+  it { should respond_to(:weight=) }
+
+  it { should respond_to(:age) }
 end
