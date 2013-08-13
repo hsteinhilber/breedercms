@@ -20,6 +20,7 @@ class Pet < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :birth_date, presence: true
   validates :profile_picture, presence: true
+  validates :gender, presence: true, inclusion: %w(M F)
 
   def age
 

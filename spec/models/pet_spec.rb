@@ -14,7 +14,9 @@
 require 'spec_helper'
 
 describe Pet do
-  before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01", profile_picture: File.open("spec/support/tapanga.jpg")) }
+  before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01", 
+                          profile_picture: File.open("spec/support/tapanga.jpg"),
+                          gender: 'M') }
 
   subject { @pet }
 
@@ -53,6 +55,26 @@ describe Pet do
 
   it { should respond_to(:gender) }
   it { should respond_to(:gender=) }
+
+  describe "when gender is not present" do
+    before { @pet.gender = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when gender is not 'M' or 'F'" do
+    before { @pet.gender = 'B' }
+    it { should_not be_valid }
+  end
+
+  describe "when gender is 'M'" do
+    before { @pet.gender = 'M' }
+    it { should be_valid }
+  end
+
+  describe "when gender is 'F'" do
+    before { @pet.gender = 'F' }
+    it { should be_valid }
+  end
 
   it { should respond_to(:color) }
   it { should respond_to(:color=) }
