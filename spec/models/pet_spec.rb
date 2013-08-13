@@ -92,4 +92,32 @@ describe Pet do
   it { should respond_to(:weight=) }
 
   it { should respond_to(:age) }
+
+  describe "when birthday has not yet passed" do
+    before do
+      Date.stub(:today).and_return("2013-8-1".to_date)
+      @pet.birth_date = "2001-12-1"
+    end
+
+    its(:age) { should == "11 years" }
+  end
+
+  describe "when birthday has already passed" do
+    before do
+      Date.stub(:today).and_return("2013-8-1".to_date) 
+      @pet.birth_date = "2001-5-1"
+    end
+
+    its(:age) { should == "12 years" }
+  end
+
+  describe "when age is less than 2 years, give age in months" do
+    before do
+      Date.stub(:today).and_return("2013-8-1".to_date)
+      @pet.birth_date = "2011-9-1"
+    end
+
+    its(:age) { should == "23 months" }
+  end
+
 end

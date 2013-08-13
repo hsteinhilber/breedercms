@@ -18,6 +18,7 @@ describe "PetPages" do
     it { should have_selector('dd', text: pet.breed) }
     it { should have_selector('dd', text: pet.height.to_s) }
     it { should have_selector('dd', text: pet.weight.to_s) }
+    it { should have_selector('dd', text: pet.age) }
   end
   
   describe "pet registration page" do

@@ -23,6 +23,17 @@ class Pet < ActiveRecord::Base
   validates :gender, presence: true, inclusion: %w(M F)
 
   def age
+    yrs = Date.today.year - birth_date.year - (birthday_passed ? 0 : 1)
+    if yrs >= 2 
+      "#{yrs} years"
+    else
+      "#{(Date.today.year * 12 + Date.today.month) - (birth_date.year * 12 + birth_date.month)} months"
+    end
+  end
 
+private
+  def birthday_passed
+    (Date.today.month > birth_date.month || 
+      (Date.today.month == birth_date.month && Date.today.day > birth_date.day))
   end
 end

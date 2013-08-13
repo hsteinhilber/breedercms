@@ -6,8 +6,9 @@
   <%= link_to image_tag(@pet.profile_picture.thumb.url, class: 'img-thumbnail, pull-left'), @pet.profile_picture_url, target: '_blank' %>
   <div class="pull-left">
     <dl class='dl-horizontal'>
-      <dt>Gender</dt><dd><%= @pet.gender %></dd>
       <dt>Breed</dt><dd><%= @pet.breed %></dd>
+      <dt>Gender</dt><dd><%= @pet.gender %></dd>
+      <dt>Age</dt><dd><%= @pet.age %></dd>
       <dt>Coat Color</dt><dd><%= @pet.color %></dd>
       <dt>Eye Color</dt><dd><%= @pet.eye_color %></dd>
       <dt>Height</dt><dd><%= @pet.height %>"</dd>
