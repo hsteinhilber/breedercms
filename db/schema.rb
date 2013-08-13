@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813121620) do
+ActiveRecord::Schema.define(:version => 20130813153526) do
 
   create_table "pets", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130813121620) do
     t.string   "breed"
     t.float    "height"
     t.float    "weight"
+    t.text     "description"
   end
 
 end

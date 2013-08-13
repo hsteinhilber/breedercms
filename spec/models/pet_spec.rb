@@ -120,4 +120,6 @@ describe Pet do
     its(:age) { should == "23 months" }
   end
 
+  it { should respond_to(:description) }
+  it { should respond_to(:description=) }
 end

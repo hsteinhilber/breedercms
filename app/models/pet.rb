@@ -14,6 +14,7 @@
 class Pet < ActiveRecord::Base
   attr_accessible :birth_date, :name, :profile_picture, :gender
   attr_accessible :color, :eye_color, :breed, :height, :weight
+  attr_accessible :description
 
   mount_uploader :profile_picture, ImageUploader
 
@@ -23,12 +24,9 @@ class Pet < ActiveRecord::Base
   validates :gender, presence: true, inclusion: %w(M F)
 
   def age
-    yrs = Date.today.year - birth_date.year - (birthday_passed ? 0 : 1)
-    if yrs >= 2 
-      "#{yrs} years"
-    else
-      "#{(Date.today.year * 12 + Date.today.month) - (birth_date.year * 12 + birth_date.month)} months"
-    end
+    months = (Date.today.year * 12 + Date.today.month) - (birth_date.year * 12 + birth_date.month)
+    years = Date.today.year - birth_date.year - (birthday_passed ? 0 : 1)
+    years >= 2 ? "#{years} years" : "#{months} months"
   end
 
 private

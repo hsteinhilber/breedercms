@@ -9,5 +9,6 @@ FactoryGirl.define do
     breed      'Siberian Husky'
     height     23
     weight     53.5
+    description "A simple description of a beautiful dog"
   end
 end
