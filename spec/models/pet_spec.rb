@@ -47,4 +47,18 @@ describe Pet do
   end
 
   it { should respond_to(:profile_picture_url) }
+
+  it { should respond_to(:gender) }
+
+  it { should respond_to(:color) }
+
+  it { should respond_to(:eye_color) }
+
+  it { should respond_to(:breed) }
+
+  it { should respond_to(:age) }
+
+  it { should respond_to(:height) }
+
+  it { should respond_to(:weight) }
 end

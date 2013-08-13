@@ -10,6 +10,7 @@ describe "PetPages" do
     it { should have_selector('h1', text: pet.name) }
     it { should have_selector('title', text: pet.name) }
     it { should have_selector('h2', text: pet.birth_date.to_s) }
+    it { should have_selector('img', url: pet.profile_picture.thumb.url) }
   end
   
   describe "pet registration page" do

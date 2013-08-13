@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130626191624) do
+ActiveRecord::Schema.define(:version => 20130813121620) do
 
   create_table "pets", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(:version => 20130626191624) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "profile_picture"
+    t.string   "gender"
+    t.string   "color"
+    t.string   "eye_color"
+    t.string   "breed"
+    t.float    "height"
+    t.float    "weight"
   end
 
 end
