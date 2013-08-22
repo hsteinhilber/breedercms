@@ -4,8 +4,8 @@ describe Photo do
   let(:pet) { FactoryGirl.create(:pet) }
 
   before do 
-    @photo = pet.photos.build(image: "./spec/support/TapangaRuns.jpg", 
-                              caption: "Tapanga running around the yard")
+    @photo = pet.photos.build(image: "./spec/support/Tapanga.jpg", 
+                              caption: "Tapanga mug shot")
   end
   subject { @photo }
   

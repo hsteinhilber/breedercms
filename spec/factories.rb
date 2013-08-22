@@ -11,4 +11,10 @@ FactoryGirl.define do
     weight     53.5
     description "A simple description of a beautiful dog"
   end
+
+  factory :photo do
+    sequence(:image) { |n| "./spec/support/photo#{n}.jpg" }
+    sequence(:caption) { |n| "This is photo ##{n} in the list" }
+    pet
+  end
 end
