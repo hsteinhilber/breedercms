@@ -122,4 +122,6 @@ describe Pet do
 
   it { should respond_to(:description) }
   it { should respond_to(:description=) }
+
+  it { should respond_to(:photos) }
 end
