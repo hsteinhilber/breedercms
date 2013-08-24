@@ -16,6 +16,7 @@ class Pet < ActiveRecord::Base
   attr_accessible :color, :eye_color, :breed, :height, :weight
   attr_accessible :description
   has_many :photos, dependent: :destroy
+  before_destroy :remove_profile_picture
 
   mount_uploader :profile_picture, ImageUploader
 
@@ -34,5 +35,9 @@ private
   def birthday_passed
     (Date.today.month > birth_date.month || 
       (Date.today.month == birth_date.month && Date.today.day > birth_date.day))
+  end
+
+  def remove_profile_picture
+    profile_picture.remove!
   end
 end

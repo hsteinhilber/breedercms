@@ -13,7 +13,7 @@ FactoryGirl.define do
   end
 
   factory :photo do
-    sequence(:image) { |n| "./spec/support/photo#{n}.jpg" }
+    sequence(:image) { |n| File.open("./spec/support/photo#{n}.jpg") }
     sequence(:caption) { |n| "This is photo ##{n} in the list" }
     pet
   end

@@ -142,4 +142,15 @@ describe Pet do
       end
     end
   end
+
+  describe "when destroying" do
+    before { @pet.save }
+
+    it "should remove the profile picture" do
+      filename = @pet.profile_picture.file.path
+      File.exist?(filename).should be_true
+      @pet.destroy
+      File.exist?(filename).should be_false
+    end
+  end
 end
