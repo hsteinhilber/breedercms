@@ -124,4 +124,22 @@ describe Pet do
   it { should respond_to(:description=) }
 
   it { should respond_to(:photos) }
+
+  describe "photos association" do
+    before do
+      @pet.save
+      3.times { FactoryGirl.create(:photo, pet: @pet) }
+    end
+
+    its(:photos) { should_not be_empty }
+    
+    it "should destroy associated photos" do
+      photos = @pet.photos.dup
+      @pet.destroy
+      photos.should_not be_empty
+      photos.each do |photo|
+        Photo.find_by_id(photo.id).should be_nil
+      end
+    end
+  end
 end
