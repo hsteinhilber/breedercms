@@ -20,4 +20,11 @@
   <div class="row">
     <p><%= @pet.description %></p>
   </div>
+  <div class="row">
+    <% if @pet.photos.any? %>
+      <ul>
+        <%= render @pet.photos %>
+      </ul>
+    <% end %>
+  </div>
 </section>

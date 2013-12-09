@@ -5,6 +5,9 @@ describe "PetPages" do
 
   describe "pet profile page" do
     let(:pet) { FactoryGirl.create(:pet) }
+    let!(:p1) { FactoryGirl.create(:photo, pet: pet) }
+    let!(:p2) { FactoryGirl.create(:photo, pet: pet) }
+                
     before { visit pet_path(pet) }
 
     it { should have_selector('h1', text: pet.name) }
@@ -20,6 +23,16 @@ describe "PetPages" do
     it { should have_selector('dd', text: pet.weight.to_s) }
     it { should have_selector('dd', text: pet.age) }
     it { should have_content(pet.description) }
+
+    describe "photos" do
+      it { should have_selector('img', url: p1.image.thumb.url)
+      puts p1.image.thumb.url }
+
+      it { should have_content(p1.caption) }
+
+      it { should have_selector('img', url: p2.image.thumb.url) }
+      it { should have_content(p2.caption) }
+    end
 
     describe "when color is not specified" do
       let(:pet) { FactoryGirl.create(:pet, color: nil) }
