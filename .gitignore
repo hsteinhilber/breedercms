@@ -16,3 +16,6 @@
 
 # Ignore uploaded photos
 /public/uploads/**/*
+
+# Ignore windows thumbnail files
+/**/Thumbs.db
