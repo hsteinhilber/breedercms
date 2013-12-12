@@ -2,6 +2,7 @@
 
 <h1><%= @pet.name %></h1>
 <h2>(born <%= @pet.birth_date %>)</h2>
+
 <section class="hero-unit">
   <div class="row">
     <%= link_to image_tag(@pet.profile_picture.thumb.url, class: 'img-thumbnail, pull-left'), @pet.profile_picture_url, target: '_blank' %>
