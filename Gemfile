@@ -12,6 +12,7 @@ group :development, :test do
   gem 'guard-spork', '1.2.0'
   gem 'childprocess', '0.3.9'
   gem 'spork', '0.9.2'
+  gem 'faker', '1.2.0'
 end
 
 group :development do

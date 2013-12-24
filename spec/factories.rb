@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :pet do
+    # Need faker gem to set up fake names, colors, dates, etc...
     name       'Tapanga Mae Steinhilber'
     birth_date '2011-12-28'
     profile_picture File.open('./spec/support/Tapanga.jpg')
