@@ -71,4 +71,14 @@ describe "PetPages" do
     it { should have_selector('h1', text: "Register") }
     it { should have_selector('title', text: "Register Pet") }
   end
+
+  describe "pet listing page" do
+    before do
+      5.times { FactoryGirl.create(:pet) }
+      visit pets_path 
+    end
+
+    it { should have_selector('h1', text: "Our Pets") }
+    it { should have_selector('title', text: "Our Pets") }
+  end
 end
