@@ -25,8 +25,7 @@ describe "PetPages" do
     it { should have_content(pet.description) }
 
     describe "photos" do
-      it { should have_selector('img', url: p1.image.thumb.url)
-      puts p1.image.thumb.url }
+      it { should have_selector('img', url: p1.image.thumb.url) }
 
       it { should have_content(p1.caption) }
 
@@ -80,5 +79,11 @@ describe "PetPages" do
 
     it { should have_selector('h1', text: "Our Pets") }
     it { should have_selector('title', text: "Our Pets") }
+
+    it "should display each pets name" do
+      Pet.all.each do |p|
+        page.should have_content(p.name)
+      end
+    end
   end
 end

@@ -3,4 +3,7 @@
 <h1>Our Pets</h1>
 
 <section class="hero-unit">
+  <% @pets.each do |p| %>
+    <span><%= p.name %></span>
+  <% end %>
 </section>
