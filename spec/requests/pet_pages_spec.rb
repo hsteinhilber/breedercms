@@ -85,5 +85,11 @@ describe "PetPages" do
         page.should have_content(p.name)
       end
     end
+
+    it "should display each pets profile picture" do
+      Pet.all.each do |p|
+        page.should have_selector('img', url: p.profile_picture.thumb.url) 
+      end
+    end
   end
 end

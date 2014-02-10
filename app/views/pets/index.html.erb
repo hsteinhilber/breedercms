@@ -2,8 +2,14 @@
 
 <h1>Our Pets</h1>
 
-<section class="hero-unit">
-  <% @pets.each do |p| %>
-    <span><%= p.name %></span>
-  <% end %>
+<section class='hero-unit'>
+  <div class='container'>
+    <% @pets.each do |p| %>
+      <div class='pet-block bg-primary pull-left'>
+        <%= image_tag p.profile_picture.thumb.url, class: 'img-thumbnail' %>
+        <br />
+        <span><%= p.name %></span>
+      </div>
+    <% end %>
+  </div>
 </section>
