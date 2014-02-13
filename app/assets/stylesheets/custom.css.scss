@@ -112,9 +112,20 @@ footer {
 .pet-block {
   width: 256px;
   height: 300px;
-  margin: 3px;
+  margin: 15px;
+  padding: 3px;
+  display: table-cell;
+  text-align: center;
   vertical-align: middle;
   background-color: $brand-primary;
+  * {
+    vertical-align: middle;
+  }
+  span {
+    display: inline-block;
+    height: 100%;
+    width: 1px;
+  }
 }
 
 .photo-list {
