@@ -5,11 +5,13 @@
 <section class='hero-unit container'>
   <% @pets.each do |p| %>
     <div class="col-md-4" style="padding:15px;">
-      <div class='pet-block'>
-        <%= image_tag p.profile_picture.thumb.url, class: 'img-thumbnail' %>
-        <br />
-        <caption><%= p.name %></caption>
-      </div>
+      <%= link_to(p) do %>
+        <div class='pet-block'>
+          <%= image_tag p.profile_picture.thumb.url, class: 'img-thumbnail' %>
+          <br />
+          <caption><%= p.name %></caption>
+        </div>
+      <% end %>
     </div>
   <% end %>
 </section>
