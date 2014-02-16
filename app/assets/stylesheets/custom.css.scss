@@ -7,6 +7,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+$brand-primary: #e0e0e0;
 
 /* universal */
 
@@ -108,25 +109,6 @@ footer {
 }
 
 /* miscellaneous */
-
-.pet-block {
-  width: 256px;
-  height: 300px;
-  margin: 15px;
-  padding: 3px;
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  background-color: $brand-primary;
-  * {
-    vertical-align: middle;
-  }
-  span {
-    display: inline-block;
-    height: 100%;
-    width: 1px;
-  }
-}
 
 .photo-list {
   width: 100%;

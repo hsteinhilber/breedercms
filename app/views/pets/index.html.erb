@@ -2,13 +2,14 @@
 
 <h1>Our Pets</h1>
 
-<section class='hero-unit'>
+<section class='hero-unit container'>
   <% @pets.each do |p| %>
-    <div class='pet-block pull-left'>
-      <!--<span></span>-->
-      <%= image_tag p.profile_picture.thumb.url, class: 'img-thumbnail' %>
-      <br />
-      <caption><%= p.name %></caption>
+    <div class="col-md-4" style="padding:15px;">
+      <div class='pet-block'>
+        <%= image_tag p.profile_picture.thumb.url, class: 'img-thumbnail' %>
+        <br />
+        <caption><%= p.name %></caption>
+      </div>
     </div>
   <% end %>
 </section>
