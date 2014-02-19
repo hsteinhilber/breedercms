@@ -4,8 +4,6 @@
 
 @import "bootstrap";
 
-$brand-primary: #e0e0e0;
-
 .pet-block {
   width: 300px;
   height: 300px;
@@ -14,8 +12,11 @@ $brand-primary: #e0e0e0;
   display: table-cell;
   text-align: center;
   vertical-align: middle;
-  background-color: $brand-primary;
+  background-color: $gray-light;
   border-radius: 5px;
+  :hover {
+    background-color: $brand-primary;
+  }
   * {
     vertical-align: middle;
   }
