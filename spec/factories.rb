@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :pet do
+  factory :pet, aliases: [:mother, :father] do
     sequence(:name)        { |n| Faker::Name.name }
     sequence(:birth_date)  { |n| (Date.today - (Random.rand(730) + 182)) }
     sequence(:profile_picture) { |n| File.open("./spec/support/Profile#{n % 8 + 1}.jpg") }
@@ -16,5 +16,11 @@ FactoryGirl.define do
     sequence(:image) { |n| File.open("./spec/support/photo#{n%12+1}.jpg") }
     sequence(:caption) { |n| "This is photo ##{n} in the list" }
     pet
+  end
+
+  factory :litter do
+    sequence(:birth_date) { |n| (Date.today - (Random.rand(730) + 182)) }
+    mother
+    father
   end
 end
