@@ -7,6 +7,8 @@ describe "PetPages" do
     let(:pet) { FactoryGirl.create(:pet) }
     let!(:p1) { FactoryGirl.create(:photo, pet: pet) }
     let!(:p2) { FactoryGirl.create(:photo, pet: pet) }
+    let!(:l1) { FactoryGirl.create(:litter, mother: pet) }
+    let!(:l2) { FactoryGirl.create(:litter, mother: pet) }
                 
     before { visit pet_path(pet) }
 
@@ -31,6 +33,14 @@ describe "PetPages" do
 
       it { should have_selector('img', url: p2.image.thumb.url) }
       it { should have_content(p2.caption) }
+    end
+
+    describe "litters" do
+      it { should have_content(l1.father.name) }
+      it { should have_link(l1.birth_date.to_s, href: litter_path(l1)) }
+
+      it { should have_content(l2.father.name) }
+      it { should have_link(l2.birth_date.to_s, href: litter_path(l2)) }
     end
 
     describe "when color is not specified" do
