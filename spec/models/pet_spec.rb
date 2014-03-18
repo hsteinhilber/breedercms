@@ -146,24 +146,15 @@ describe Pet do
   it { should respond_to(:litters) }
 
   describe "litters association" do
+    before(:each) { @pet.save }
     let!(:older_litter) do
-      puts "\nOlder Litter:"
-      puts @pet
-      puts @pet.valid?
-      puts "\n"
-      FactoryGirl.create(:litter, mother: @pet)
+      FactoryGirl.create(:litter, mother: @pet, birth_date: 1.year.ago)
     end
     let!(:newer_litter) do
-      puts "\n"
-      puts @pet
-      puts "\n"
-      FactoryGirl.create(:litter, mother: @pet)
+      FactoryGirl.create(:litter, mother: @pet, birth_date: 1.month.ago)
     end
 
     it "should sort litters correctly" do
-      puts "\n"
-      puts @pet
-      puts "\n"
       expect(@pet.litters.to_a).to eq [newer_litter, older_litter]
     end
   end

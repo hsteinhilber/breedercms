@@ -17,7 +17,6 @@ class Pet < ActiveRecord::Base
   attr_accessible :description
   has_many :photos, dependent: :destroy
   has_many :litters, dependent: :destroy, foreign_key: :mother_id
-  default_scope -> { order('birth_date DESC') }
   before_destroy :remove_profile_picture
 
   mount_uploader :profile_picture, ImageUploader
