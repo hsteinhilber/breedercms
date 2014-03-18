@@ -146,7 +146,7 @@ describe Pet do
   it { should respond_to(:litters) }
 
   describe "litters association" do
-    before(:each) { @pet.save }
+    before { @pet.save }
     let!(:older_litter) do
       FactoryGirl.create(:litter, mother: @pet, birth_date: 1.year.ago)
     end
@@ -156,6 +156,15 @@ describe Pet do
 
     it "should sort litters correctly" do
       expect(@pet.litters.to_a).to eq [newer_litter, older_litter]
+    end
+    
+    it "should destroy associated litters" do
+      litters = @pet.litters.to_a
+      @pet.destroy
+      expect(litters).not_to be_empty
+      litters.each do |litter|
+        expect(Litter.where(id: litter.id)).to be_empty
+      end
     end
   end
 
