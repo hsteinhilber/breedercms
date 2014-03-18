@@ -145,6 +145,29 @@ describe Pet do
 
   it { should respond_to(:litters) }
 
+  describe "litters association" do
+    let!(:older_litter) do
+      puts "\nOlder Litter:"
+      puts @pet
+      puts @pet.valid?
+      puts "\n"
+      FactoryGirl.create(:litter, mother: @pet)
+    end
+    let!(:newer_litter) do
+      puts "\n"
+      puts @pet
+      puts "\n"
+      FactoryGirl.create(:litter, mother: @pet)
+    end
+
+    it "should sort litters correctly" do
+      puts "\n"
+      puts @pet
+      puts "\n"
+      expect(@pet.litters.to_a).to eq [newer_litter, older_litter]
+    end
+  end
+
   describe "when destroying" do
     before { @pet.save }
 
