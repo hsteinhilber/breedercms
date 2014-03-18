@@ -143,6 +143,8 @@ describe Pet do
     end
   end
 
+  it { should respond_to(:litters) }
+
   describe "when destroying" do
     before { @pet.save }
 

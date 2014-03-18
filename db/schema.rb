@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822115449) do
+ActiveRecord::Schema.define(:version => 20140317214617) do
+
+  create_table "litters", :force => true do |t|
+    t.string   "birth_date"
+    t.integer  "mother_id"
+    t.integer  "father_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "litters", ["mother_id", "birth_date"], :name => "index_litters_on_mother_id_and_birth_date"
 
   create_table "pets", :force => true do |t|
     t.string   "name"
