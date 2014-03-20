@@ -1,6 +1,6 @@
 namespace :db do
   desc "Fill database with sample data"
-  task populate: :environment do
+  task populate: [:environment, :reset] do
     t = Pet.create!( name:       'Tapanga Mae Steinhilber',
                      birth_date: '2011-12-28',
                      profile_picture: File.open('./spec/support/Tapanga.jpg'),
@@ -19,7 +19,8 @@ namespace :db do
                      image: File.open('./spec/support/photo3.jpg'))
     t.photos.create!(caption: "Tapanga playing with a ball", 
                      image: File.open('./spec/support/photo4.jpg'))
-
+    
+    # Add additional pets to database
     8.times do |n|
       Pet.create!( name:       Faker::Name.name,
                    birth_date: Date.today - (rand(730) + 182),
@@ -32,5 +33,9 @@ namespace :db do
                    weight:     15 + rand() * 50,
                    description: Faker::Lorem.paragraph(2))
     end
+
+    # Add litters to database
+    t.litters.create!(birth_date: '2013-1-1', father_id: Pet.last.id)
+    t.litters.create!(birth_date: '2013-7-1', father_id: Pet.all[1].id)
   end
 end
