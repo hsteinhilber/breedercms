@@ -30,4 +30,11 @@
       </ul>
     <% end %>
   </div>
+  <div class="row col-md-8 col-md-offset-2">
+    <% if @pet.litters.any? %>
+      <ul class="litter-list">
+        <%= render @pet.litters %>
+      </ul>
+    <% end %>
+  </div>
 </section>
