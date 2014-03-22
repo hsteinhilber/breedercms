@@ -36,10 +36,10 @@ describe "PetPages" do
     end
 
     describe "litters" do
-      it { should have_content(l1.father.name) }
+      it { should have_link(l1.father.name, href: pet_path(l1.father)) }
       it { should have_link(l1.birth_date.to_s, href: litter_path(l1)) }
 
-      it { should have_content(l2.father.name) }
+      it { should have_link(l2.father.name, href: pet_path(l2.father)) }
       it { should have_link(l2.birth_date.to_s, href: litter_path(l2)) }
     end
 

@@ -20,21 +20,23 @@
       </dl>
     </div>
   </div>
-  <div class="row col-md-8 col-md-offset-2">
+  <div class="row col-md-8 col-md-offset-2" style="margin-top:2em">
     <p><%= @pet.description %></p>
   </div>
-  <div class="row col-md-8 col-md-offset-2">
-    <% if @pet.photos.any? %>
-      <ul class="photo-list">
-        <%= render @pet.photos %>
-      </ul>
-    <% end %>
-  </div>
-  <div class="row col-md-8 col-md-offset-2">
-    <% if @pet.litters.any? %>
+  <% if @pet.litters.any? %>
+    <div class="row col-md-8 col-md-offset-2">
+      <h3>Litters</h3>
       <ul class="litter-list">
         <%= render @pet.litters %>
       </ul>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+  <% if @pet.photos.any? %>
+    <div class="row col-md-8 col-md-offset-2">
+      <h3>Photos</h3>
+      <ul class="photo-list">
+        <%= render @pet.photos %>
+      </ul>
+    </div>
+  <% end %>
 </section>
