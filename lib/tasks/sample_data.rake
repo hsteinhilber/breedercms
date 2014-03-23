@@ -1,6 +1,16 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
+    SiteSettings.title = "Breeder CMS"
+    SiteSettings.logo_image = ""
+    SiteSettings.species = "dog"
+    SiteSettings.baby_species = "puppy"
+    SiteSettings.breed = "siberian husky"
+    SiteSettings.short_breed = "husky"
+    SiteSettings.header_color = "#000000"
+    SiteSettings.body_color = "#ffffff"
+    SiteSettings.hero_unit_color = "#cccccc"
+
     t = Pet.create!( name:       'Tapanga Mae Steinhilber',
                      birth_date: '2011-12-28',
                      profile_picture: File.open('./spec/support/Tapanga.jpg'),

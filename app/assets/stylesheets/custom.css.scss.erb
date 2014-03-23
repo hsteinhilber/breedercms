@@ -16,7 +16,7 @@ html {
 
 body {
   padding-top: 60px;
-  background-color: #ffffff;
+  background-color: <%= SiteSettings.body_color %>;
 }
 
 section {
@@ -35,11 +35,7 @@ textarea {
 }
 
 .hero-unit {
-  background-color: #cccccc;
-}
-
-.container { 
-  background-color: #cccccc;
+  background-color: <%= SiteSettings.hero_unit_color %>;
 }
 
 /* typography */
