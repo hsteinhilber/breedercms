@@ -1,7 +1,7 @@
-<% provide(:title, "Our Pets") %>
+<% provide(:title, "Our #{SiteSettings.breed.titlecase.pluralize}") %>
 
 <div class='col-md-12'>
-  <h1>Our Pets</h1>
+  <h1>Our <%= SiteSettings.breed.titlecase.pluralize %></h1>
 </div>
 
 <section class='hero-unit container'>
