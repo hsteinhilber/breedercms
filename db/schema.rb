@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822115449) do
+ActiveRecord::Schema.define(:version => 20140412225059) do
+
+  create_table "litters", :force => true do |t|
+    t.string   "birth_date"
+    t.integer  "mother_id"
+    t.integer  "father_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "litters", ["mother_id", "birth_date"], :name => "index_litters_on_mother_id_and_birth_date"
 
   create_table "pets", :force => true do |t|
     t.string   "name"
@@ -37,5 +47,24 @@ ActiveRecord::Schema.define(:version => 20130822115449) do
   end
 
   add_index "photos", ["pet_id"], :name => "index_photos_on_pet_id"
+
+  create_table "settings", :force => true do |t|
+    t.string   "var",                      :null => false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", :limit => 30
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], :name => "index_settings_on_thing_type_and_thing_id_and_var", :unique => true
+
+  create_table "static_pages", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
