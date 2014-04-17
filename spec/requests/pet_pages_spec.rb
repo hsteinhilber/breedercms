@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe "PetPages" do
+  before do
+    SiteSettings.title = "Breeder CMS"
+    SiteSettings.species = "dog"
+    SiteSettings.baby_species = "pet"
+    SiteSettings.breed = "pet"
+    SiteSettings.short_breed = "pet"
+  end
+
   subject { page }
 
   describe "pet profile page" do
