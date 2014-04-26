@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: photos
+#
+#  id         :integer          not null, primary key
+#  image      :string(255)
+#  caption    :string(255)
+#  pet_id     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Photo do

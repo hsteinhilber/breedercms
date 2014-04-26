@@ -2,13 +2,19 @@
 #
 # Table name: pets
 #
-#  profile_pic     :text
-#  id              :integer          primary key
+#  id              :integer          not null, primary key
 #  name            :string(255)
 #  birth_date      :date
-#  created_at      :datetime
-#  updated_at      :datetime
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
 #  profile_picture :string(255)
+#  gender          :string(255)
+#  color           :string(255)
+#  eye_color       :string(255)
+#  breed           :string(255)
+#  height          :float
+#  weight          :float
+#  description     :text
 #
 
 require 'spec_helper'
