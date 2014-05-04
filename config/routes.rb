@@ -1,6 +1,6 @@
 Breedercms::Application.routes.draw do
-  root to: 'static_pages#home'
-  match '/about', to: 'static_pages#about'
+  root to: 'static_pages#show', id: 'home'
+  match '/about', to: 'static_pages#show', id: 'about-us'
   match '/contact', to: 'static_pages#contact'
 
   resources :pets

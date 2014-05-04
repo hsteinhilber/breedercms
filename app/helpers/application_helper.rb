@@ -8,4 +8,8 @@ module ApplicationHelper
       "#{SiteSettings.title} - #{page_title}"
     end
   end
+
+  def static_pages
+    StaticPage.where('NOT slug IN (?)', ['home', 'about-us'])
+  end
 end
