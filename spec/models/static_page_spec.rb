@@ -78,16 +78,16 @@ describe StaticPage do
 
   it { should respond_to(:to_param) }
   its(:class) { should respond_to(:find_by_param) }
-  describe "when searching for a page by param" do
+  describe "when searching for a page" do
     before { @page.save }
     it "should find the page using its id" do
-      StaticPage.find_by_param(@page.id).should eql(@page)
+      StaticPage.find(@page.id).should eql(@page)
     end
     it "should return nil if page does not exist" do
-      StaticPage.find_by_param(-99).should be_nil
+      StaticPage.find(-99).should be_nil
     end
     it "should find the page using its slug" do
-      StaticPage.find_by_param(@page.slug).should eql(@page)
+      StaticPage.find(@page.slug).should eql(@page)
     end
   end
   its(:to_param) { should eql(@page.slug) }

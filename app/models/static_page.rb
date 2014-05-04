@@ -23,6 +23,10 @@ class StaticPage < ActiveRecord::Base
     slug
   end
 
+  def self.find(input)
+    find_by_param(input)
+  end
+
   def self.find_by_param(input)
     input.to_s == input.to_i.to_s ? find_by_id(input) : find_by_slug(input)
   end

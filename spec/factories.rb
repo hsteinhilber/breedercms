@@ -17,4 +17,10 @@ FactoryGirl.define do
     sequence(:caption) { |n| "This is photo ##{n} in the list" }
     pet
   end
+
+  factory :static_page do
+    sequence(:title) { |n| Faker::Lorem.words(3).join(" ") }
+    sequence(:subtitle) { |n| Faker::Lorem.words(6).join(" ") if n%2 == 0 }
+    sequence(:content) { |n| Faker::Lorem.paragraph(3) }
+  end
 end

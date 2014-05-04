@@ -24,4 +24,15 @@ describe "StaticPages" do
     it { should have_selector('h1', text: 'Contact Us') }
     it { should have_selector('title', text: full_title('Contact Us')) }
   end
+
+  describe "displaying static pages" do
+    let(:static_page) { FactoryGirl.create(:static_page) }
+
+    before { visit static_page_path(static_page) }
+
+    it { should have_selector('h1', text: static_page.title) }
+    it { should have_selector('h2', text: static_page.subtitle) }
+    it { should have_content(static_page.content) }
+    it { should have_content(static_page.updated_at.to_s) }
+  end
 end
