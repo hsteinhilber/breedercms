@@ -6,6 +6,7 @@ namespace :db do
     SiteSettings.baby_species = "puppy"
     SiteSettings.breed = "siberian husky"
     SiteSettings.short_breed = "husky"
+    SiteSettings.admin_email = "harry.steinhilber@live.com"
 
     t = Pet.create!( name:       'Tapanga Mae Steinhilber',
                      birth_date: '2011-12-28',
