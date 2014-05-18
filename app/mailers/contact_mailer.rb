@@ -1,3 +1,7 @@
 class ContactMailer < ActionMailer::Base
-  default from: SiteSettings.admin_email
+  default to: SiteSettings.admin_email
+
+  def contact_admin
+    mail
+  end
 end
