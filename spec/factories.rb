@@ -23,4 +23,10 @@ FactoryGirl.define do
     sequence(:subtitle) { |n| Faker::Lorem.words(6).join(" ") if n%2 == 0 }
     sequence(:content) { |n| Faker::Lorem.paragraph(3) }
   end
+
+  factory :litter do
+    sequence(:birth_date) { |n| (Date.today - (Random.rand(730) + 182)) }
+    association :mother, factory: :pet
+    association :father, factory: :pet
+  end
 end

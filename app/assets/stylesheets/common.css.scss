@@ -185,6 +185,21 @@ footer {
   }
 }
 
+.litter-list {
+  width: 100%;
+  height: auto;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+  list-style: none;
+  li {
+    text-align: left;
+    div {
+      display: inline-block;
+    }
+  }
+}
+
 .debug_dump {
   clear: both;
   float: left;
