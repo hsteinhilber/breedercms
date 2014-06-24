@@ -4,6 +4,6 @@
   <h2><%= @static_page.subtitle %></h2>
 </div>
 <div>
-  <%= @static_page.content %>
+  <%= sanitize @static_page.content %>
 </div>
 <div>Last Updated <%= @static_page.updated_at %></div>
