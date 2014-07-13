@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140417222758) do
+ActiveRecord::Schema.define(:version => 20140710164340) do
 
   create_table "litters", :force => true do |t|
     t.string   "birth_date"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20140417222758) do
     t.float    "height"
     t.float    "weight"
     t.text     "description"
+    t.integer  "litter_id"
   end
 
   create_table "photos", :force => true do |t|

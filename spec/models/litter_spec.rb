@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: litters
+#
+#  id         :integer          not null, primary key
+#  birth_date :string(255)
+#  mother_id  :integer
+#  father_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'spec_helper'
 
 describe Litter do
