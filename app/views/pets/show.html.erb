@@ -17,6 +17,7 @@
         <%= display_attribute("Eye Color", @pet.eye_color) %>
         <%= display_attribute("Height", @pet.height, '"') %>
         <%= display_attribute("Weight", @pet.weight, " lbs") %>
+        <%= display_attribute("Litter", link_to(@pet.birth_date, pet_litter_path(@pet.litter.mother, @pet.litter))) if belongs_to_litter?(@pet) %>
       </dl>
     </div>
   </div>
