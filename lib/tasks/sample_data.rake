@@ -8,6 +8,12 @@ namespace :db do
     SiteSettings.short_breed = "husky"
     SiteSettings.admin_email = "harry.steinhilber@live.com"
 
+    # Add base static pages to database
+    StaticPage.create!(title: "Home", subtitle: "Breeder CMS",
+                      content: Faker::Lorem.paragraph(3));
+    StaticPage.create!(title: "About Us", subtitle: Faker::Lorem.words(6),
+                       content: Faker::Lorem.paragraph(3));
+
     t = Pet.create!( name:       'Tapanga Mae Steinhilber',
                      birth_date: '2011-12-28',
                      profile_picture: File.open('./spec/support/Tapanga.jpg'),
@@ -42,7 +48,14 @@ namespace :db do
     end
 
     # Add litters to database
-    t.litters.create!(birth_date: '2013-1-1', father_id: Pet.last.id)
-    t.litters.create!(birth_date: '2013-7-1', father_id: Pet.all[1].id)
+    l = t.litters.create!(birth_date: '2013-1-1', father_id: Pet.last.id)
+    l.pets << Pet.all[2]
+    l.pets << Pet.all[3]
+
+    l = t.litters.create!(birth_date: '2013-7-1', father_id: Pet.all[1].id)
+    l.pets << Pet.all[4]
+    l.pets << Pet.all[5]
+    l.pets << Pet.all[6]
+    l.pets << Pet.all[7]
   end
 end

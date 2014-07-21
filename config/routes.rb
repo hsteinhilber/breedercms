@@ -4,9 +4,10 @@ Breedercms::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/send_email', to: 'static_pages#send_email'
 
-  resources :pets
+  resources :pets do
+    resources :litters
+  end
   resources :static_pages
-  resources :litters
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

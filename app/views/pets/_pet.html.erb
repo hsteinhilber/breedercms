@@ -1,0 +1,9 @@
+<div class="col-md-4" style="padding:15px; text-align: center;">
+  <%= link_to(pet) do %>
+    <div class='pet-block'>
+      <%= image_tag pet.profile_picture.thumb.url, class: 'img-thumbnail' %>
+      <br />
+      <caption><%= pet.name %></caption>
+    </div>
+  <% end %>
+</div>

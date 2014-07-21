@@ -1,6 +1,6 @@
-<li>
-  <div><%= link_to litter.father.name, pet_path(litter.father) %></div>
-  <div><%= link_to litter.birth_date, litter_path(litter) %></div>
-  <div><%= pluralize(litter.males, "male") %></div>
-  <div><%= pluralize(litter.females, "female") %></div>
+<li style="width:80%">
+  <div style="width:25%"><%= link_to litter.father.name, pet_path(litter.father) %></div>
+  <div style="width:25%"><%= link_to litter.birth_date, pet_litter_path(litter.mother, litter) %></div>
+  <div style="width:25%"><%= pluralize(litter.males, "male") %></div>
+  <div style="width:25%"><%= pluralize(litter.females, "female") %></div>
 </li>
