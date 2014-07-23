@@ -1,0 +1,9 @@
+<% if Pet.where(status: :owned).count > 0 %>
+  <li><%= link_to "Our #{SiteSettings.short_breed.titlecase.pluralize}",   pets_path %></li>
+<% end %>
+<% if Pet.where(status: :available).count > 0 %>
+  <li><%= link_to "Available #{SiteSettings.baby_species.titlecase.pluralize}", pets_path(status: :available) %></li>
+<% end %>
+<% if Pet.where(status: :adopted).count > 0 %>
+  <li><%= link_to "Past #{SiteSettings.baby_species.titlecase.pluralize}", pets_path(status: :adopted) %></li>
+<% end %>

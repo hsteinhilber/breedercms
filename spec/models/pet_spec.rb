@@ -15,6 +15,7 @@
 #  height          :float
 #  weight          :float
 #  description     :text
+#  litter_id       :integer
 #
 
 require 'spec_helper'
@@ -22,7 +23,7 @@ require 'spec_helper'
 describe Pet do
   before { @pet = Pet.new(name: "Rover", birth_date: "2001-01-01", 
                           profile_picture: File.open("spec/support/tapanga.jpg"),
-                          gender: 'M') }
+                          gender: 'M', status: :owned) }
 
   subject { @pet }
 
@@ -80,6 +81,26 @@ describe Pet do
   describe "when gender is 'F'" do
     before { @pet.gender = 'F' }
     it { should be_valid }
+  end
+
+  it { should respond_to(:status) }
+  it { should respond_to(:status=) }
+
+  describe "when status is not present" do
+    before { @pet.status = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when status is not a valid value" do
+    before { @pet.status = :invalid }
+    it { should_not be_valid }
+  end
+
+  [:available, :owned, :adopted].each do |status|
+    describe "when status is #{status}" do
+      before { @pet.status = status }
+      it { should be_valid }
+    end
   end
 
   it { should respond_to(:color) }

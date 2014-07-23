@@ -1,6 +1,12 @@
 class PetsController < ApplicationController
   def index
-    @pets = Pet.all
+    status = (params[:status] || 'owned').to_s
+    if (status == 'owned') 
+      @heading = "Our #{SiteSettings.breed.titlecase.pluralize}"
+    else
+      @heading = "#{status == 'available' ? 'Available' : 'Past'} #{SiteSettings.baby_species.titlecase.pluralize}"
+    end
+    @pets = Pet.where(status: status)
   end
 
   def new

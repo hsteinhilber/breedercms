@@ -6,7 +6,7 @@
       <nav>
         <ul class="nav nav-pills navbar-right">
           <li><%= link_to "Home",       root_path %></li>
-          <li><%= link_to "Our #{SiteSettings.short_breed.titlecase.pluralize}",   pets_path %></li>
+          <%= render 'layouts/pet_links' %>
           <%= render 'static_pages/navlinks' %>
           <li><%= link_to "About Us",   about_path %></li>
           <li><%= link_to "Contact Us", contact_path %></li>

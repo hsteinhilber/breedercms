@@ -15,12 +15,14 @@
 #  height          :float
 #  weight          :float
 #  description     :text
+#  litter_id       :integer
 #
 
 class Pet < ActiveRecord::Base
   attr_accessible :birth_date, :name, :profile_picture, :gender
   attr_accessible :color, :eye_color, :breed, :height, :weight
   attr_accessible :description
+  attr_accessible :status
   has_many :photos, dependent: :destroy
   has_many :litters, dependent: :destroy, foreign_key: :mother_id
   belongs_to :litter
@@ -31,7 +33,8 @@ class Pet < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :birth_date, presence: true
   validates :profile_picture, presence: true
-  validates :gender, presence: true, inclusion: %w(M F)
+  validates :gender, presence: true, inclusion: { in: %w(M F) }
+  validates :status, inclusion: { in: [:available, :owned, :adopted] }
 
   def age
     months = (Date.today.year * 12 + Date.today.month) - (birth_date.year * 12 + birth_date.month)
