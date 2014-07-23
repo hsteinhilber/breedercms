@@ -3,20 +3,28 @@
   <h1>Contact Us</h1>
 </div>
 <div>
-  <%= form_tag 'static_pages/send_mail', action: 'post' do %>
+  <p>
+    We're sorry, but the contact form is not working at this time.
+    Please feel free to email us at <a href='mailto:<%= SiteSettings.admin_email %>'><%= SiteSettings.admin_email %></a>.
+  </p>
+<% if (false) # do not render this yet, wip %>
+  <%= form_tag 'send_email', action: 'post' do %>
     <%= label_tag :name %>
     <%= text_field_tag :name %>
     
     <%= label_tag :from_email, 'Email' %>
     <%= email_field_tag :from_email %>
 
+    <!--
     <%= label_tag :join_newsletter, "Would you like to receive notices when we have a new litter?" %>
     <%= check_box_tag :join_newsletter %>
+    -->
 
     <%= label_tag :comments %>
     <%= text_area_tag :comments %>
 
     <%= submit_tag 'Send' %>
   <% end %>
+<% end %>
 </div>
 
