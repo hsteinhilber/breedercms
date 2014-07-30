@@ -6,5 +6,7 @@ Feedback was left by the folling visitor:
 <%= @email %>
 
 <%= @comments %>
-
+<% if @newsletter %>
+** <%= @name %> would like to receive email updates. **
+<% end %>
 

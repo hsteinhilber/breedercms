@@ -4,20 +4,26 @@
 </div>
 <div>
   <%= render 'layouts/notification' %>
-  <%= form_tag 'contact/send', action: 'post' do %>
+  <%= form_tag 'contact/send', action: 'post', class: 'center' do %>
+    <p>
     <%= label_tag :name %>
     <%= text_field_tag :name %>
+    </p>
     
+    <p>
     <%= label_tag :from_email, 'Email' %>
     <%= email_field_tag :from_email %>
+    </p>
 
-    <!--
+    <p>
     <%= label_tag :join_newsletter, "Would you like to receive notices when we have a new litter?" %>
     <%= check_box_tag :join_newsletter %>
-    -->
+    </p>
 
+    <p>
     <%= label_tag :comments %>
     <%= text_area_tag :comments %>
+    </p>
 
     <%= submit_tag 'Send' %>
   <% end %>

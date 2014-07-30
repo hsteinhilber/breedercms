@@ -36,19 +36,36 @@ a {
 }
 
 label {
-  width: 100%;
+  width: 8em;
+  text-align: left;
   display: inline-block;
 }
 
+label[for="comments"] {
+  width: 50em;
+}
+
+label[for="join_newsletter"] {
+  width: 30em;
+}
+
 input {
-  width: 100%;
+  width: 42em;
   display: inline-block;
   margin-bottom: 0.5em;
 }
 
+input[type="checkbox"] {
+  width: 20em;
+}
+
+input[type="button"], input[type="submit"] {
+  width: auto;
+}
+
 textarea {
   resize: vertical;
-  width: 100%;
+  width: 50em;
   height: 6em;
   margin-bottom: 0.5em;
 }

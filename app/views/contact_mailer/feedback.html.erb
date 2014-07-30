@@ -7,9 +7,13 @@
     <h1>Feedback</h1>
     <p>Feedback was left by the following visitor:<br/>
        <%= @name %><br/>
-       <%= link_to @email, "mailto:#{@email}" %></p>
+       <%= link_to @email, "mailto:#{@email}" %>
+    </p>
     <p>
-    <%= @comments %>
+    <%= @comments %><br/>
+    <% if @newsletter %>
+      <em><%= @name %> would like to receive email updates.</em>
+    <% end %>
     </p>
   </body>
 </html>
