@@ -2,10 +2,10 @@ class StaticPagesController < ApplicationController
   def contact
   end
 
-  def send_email
-    # ContactMailer.contact_admin(params)
-    # flash[:success] = "Your message has been sent."
-    # render 'contact'
+  def send_contact
+    ContactMailer.feedback(params).deliver
+    flash[:success] = "Your message has been sent."
+    redirect_to contact_path
   end
 
   def show

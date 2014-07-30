@@ -2,7 +2,7 @@ Breedercms::Application.routes.draw do
   root to: 'static_pages#show', id: 'home'
   match '/about', to: 'static_pages#show', id: 'about-us'
   match '/contact', to: 'static_pages#contact'
-  match '/send_email', to: 'static_pages#send_email'
+  match '/contact/send', to: 'static_pages#send_contact'
 
   resources :pets do
     resources :litters

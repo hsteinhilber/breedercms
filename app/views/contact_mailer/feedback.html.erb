@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta type='text/html;charset=UTF-8' http-equiv='Content-Type'>
+  </head>
+  <body>
+    <h1>Feedback</h1>
+    <p>Feedback was left by the following visitor:<br/>
+       <%= @name %><br/>
+       <%= link_to @email, "mailto:#{@email}" %></p>
+    <p>
+    <%= @comments %>
+    </p>
+  </body>
+</html>

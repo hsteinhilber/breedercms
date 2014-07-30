@@ -3,12 +3,8 @@
   <h1>Contact Us</h1>
 </div>
 <div>
-  <p>
-    We're sorry, but the contact form is not working at this time.
-    Please feel free to email us at <a href='mailto:<%= SiteSettings.admin_email %>'><%= SiteSettings.admin_email %></a>.
-  </p>
-<% if (false) # do not render this yet, wip %>
-  <%= form_tag 'send_email', action: 'post' do %>
+  <%= render 'layouts/notification' %>
+  <%= form_tag 'contact/send', action: 'post' do %>
     <%= label_tag :name %>
     <%= text_field_tag :name %>
     
@@ -25,6 +21,5 @@
 
     <%= submit_tag 'Send' %>
   <% end %>
-<% end %>
 </div>
 
