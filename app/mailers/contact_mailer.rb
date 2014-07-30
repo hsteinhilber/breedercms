@@ -1,5 +1,5 @@
 class ContactMailer < ActionMailer::Base
-  default to: SiteSettings.admin_email
+  default to: SiteSettings.feedback_email
 
   def feedback(params)
     @name = params[:name]

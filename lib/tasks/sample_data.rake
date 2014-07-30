@@ -6,7 +6,7 @@ namespace :db do
     SiteSettings.baby_species = "puppy"
     SiteSettings.breed = "siberian husky"
     SiteSettings.short_breed = "husky"
-    SiteSettings.admin_email = "harry.steinhilber@live.com"
+    SiteSettings.feedback_email = "harry.steinhilber@live.com"
 
     # Add base static pages to database
     StaticPage.create!(title: "Home", subtitle: "Breeder CMS",
