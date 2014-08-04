@@ -16,6 +16,7 @@
 #  weight          :float
 #  description     :text
 #  litter_id       :integer
+#  status          :string(255)
 #
 
 require 'spec_helper'

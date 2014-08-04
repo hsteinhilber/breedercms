@@ -6,6 +6,7 @@ gem 'bootstrap-sass', '~> 3.1'
 gem 'carrierwave', '0.8.0'
 gem 'mini_magick', '3.5.0'
 gem 'rails-settings-cached'
+gem 'authlogic'
 
 group :development, :test do
   gem 'sqlite3'
