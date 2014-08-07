@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(:version => 20140804165514) do
 
   create_table "admins", :force => true do |t|
-    t.string   "username"
+    t.string   "login"
     t.string   "email"
-    t.string   "crypted_password"
-    t.string   "password_salt"
-    t.string   "password_token"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.string   "crypted_password",  :null => false
+    t.string   "password_salt",     :null => false
+    t.string   "persistence_token", :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "litters", :force => true do |t|

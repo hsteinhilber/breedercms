@@ -23,6 +23,7 @@ namespace :db do
                      breed:      'Siberian Husky',
                      height:     23,
                      weight:     53.5,
+                     status:     :owned,
                      description: "A simple description of a beautiful dog")
     t.photos.create!(caption: "Tapanga running around", 
                      image: File.open('./spec/support/photo1.jpg'))
@@ -44,6 +45,7 @@ namespace :db do
                    breed:      Faker::Lorem.word,
                    height:     10 + rand(30),
                    weight:     15 + rand() * 50,
+                   status:     :owned,
                    description: Faker::Lorem.paragraph(2))
     end
 
@@ -57,5 +59,12 @@ namespace :db do
     l.pets << Pet.all[5]
     l.pets << Pet.all[6]
     l.pets << Pet.all[7]
+
+    Pet.all.each do |p|
+      unless p.litter_id.nil?
+        p.status = rand(2) == 0 ? :adopted : :available
+        p.save
+      end
+    end
   end
 end
