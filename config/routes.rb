@@ -8,6 +8,7 @@ Breedercms::Application.routes.draw do
     resources :litters
   end
   resources :static_pages
+  resources :admin_sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
