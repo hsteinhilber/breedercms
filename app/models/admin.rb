@@ -22,7 +22,6 @@
 #
 
 class Admin < ActiveRecord::Base
-  acts_as_authentic do |c|
-    c.login_field = 'email'
-  end
+  attr_accessible login, email, password, password_confirmation
+  acts_as_authentic
 end

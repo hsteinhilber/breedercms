@@ -8,6 +8,13 @@ namespace :db do
     SiteSettings.short_breed = "husky"
     SiteSettings.feedback_email = "harry.steinhilber@live.com"
 
+    # Add an administrator
+    a = Admin.create!(login: 'admin',
+                      email: 'harry.steinhilber@live.com',
+                      password: 'password',
+                      password_confirmation: 'password')
+    
+
     # Add base static pages to database
     StaticPage.create!(title: "Home", subtitle: "Breeder CMS",
                       content: Faker::Lorem.paragraph(3));
